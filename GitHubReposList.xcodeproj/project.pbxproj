@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		520752E025B75449009077C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520752DF25B75449009077C4 /* AppDelegate.swift */; };
 		520752E225B75449009077C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520752E125B75449009077C4 /* SceneDelegate.swift */; };
-		520752E425B75449009077C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520752E325B75449009077C4 /* ViewController.swift */; };
-		520752E725B75449009077C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520752E525B75449009077C4 /* Main.storyboard */; };
 		520752E925B7544D009077C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520752E825B7544D009077C4 /* Assets.xcassets */; };
 		520752EC25B7544D009077C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520752EA25B7544D009077C4 /* LaunchScreen.storyboard */; };
+		520752F725B75710009077C4 /* ReposScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520752F625B75710009077C4 /* ReposScene.storyboard */; };
+		520752FB25B7576F009077C4 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520752FA25B7576F009077C4 /* ReposViewController.swift */; };
+		5207530225B75B73009077C4 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207530125B75B73009077C4 /* Constraints.swift */; };
+		5207530525B75D1D009077C4 /* ReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207530425B75D1D009077C4 /* ReposCell.swift */; };
+		5207530825B75E17009077C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207530725B75E17009077C4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		520752DC25B75449009077C4 /* GitHubReposList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubReposList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		520752DF25B75449009077C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		520752E125B75449009077C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		520752E325B75449009077C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		520752E625B75449009077C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		520752E825B7544D009077C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520752EB25B7544D009077C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520752ED25B7544D009077C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		520752F625B75710009077C4 /* ReposScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReposScene.storyboard; sourceTree = "<group>"; };
+		520752FA25B7576F009077C4 /* ReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
+		5207530125B75B73009077C4 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		5207530425B75D1D009077C4 /* ReposCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposCell.swift; sourceTree = "<group>"; };
+		5207530725B75E17009077C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		520752DE25B75449009077C4 /* GitHubReposList */ = {
 			isa = PBXGroup;
 			children = (
+				5207530025B75B5F009077C4 /* Extensions */,
+				520752F925B7573E009077C4 /* Repos */,
 				520752DF25B75449009077C4 /* AppDelegate.swift */,
 				520752E125B75449009077C4 /* SceneDelegate.swift */,
-				520752E325B75449009077C4 /* ViewController.swift */,
-				520752E525B75449009077C4 /* Main.storyboard */,
 				520752E825B7544D009077C4 /* Assets.xcassets */,
 				520752EA25B7544D009077C4 /* LaunchScreen.storyboard */,
 				520752ED25B7544D009077C4 /* Info.plist */,
 			);
 			path = GitHubReposList;
+			sourceTree = "<group>";
+		};
+		520752F925B7573E009077C4 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				520752FF25B75A09009077C4 /* Cell */,
+				520752F625B75710009077C4 /* ReposScene.storyboard */,
+				520752FA25B7576F009077C4 /* ReposViewController.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
+		520752FF25B75A09009077C4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5207530425B75D1D009077C4 /* ReposCell.swift */,
+				5207530725B75E17009077C4 /* Constants.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5207530025B75B5F009077C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5207530125B75B73009077C4 /* Constraints.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +159,7 @@
 			files = (
 				520752EC25B7544D009077C4 /* LaunchScreen.storyboard in Resources */,
 				520752E925B7544D009077C4 /* Assets.xcassets in Resources */,
-				520752E725B75449009077C4 /* Main.storyboard in Resources */,
+				520752F725B75710009077C4 /* ReposScene.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +170,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				520752E425B75449009077C4 /* ViewController.swift in Sources */,
+				5207530225B75B73009077C4 /* Constraints.swift in Sources */,
+				520752FB25B7576F009077C4 /* ReposViewController.swift in Sources */,
 				520752E025B75449009077C4 /* AppDelegate.swift in Sources */,
 				520752E225B75449009077C4 /* SceneDelegate.swift in Sources */,
+				5207530525B75D1D009077C4 /* ReposCell.swift in Sources */,
+				5207530825B75E17009077C4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		520752E525B75449009077C4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				520752E625B75449009077C4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		520752EA25B7544D009077C4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
