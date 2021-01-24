@@ -22,7 +22,7 @@ class ReposCell: UITableViewCell {
     
     let cellView: UIView = {
        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -30,7 +30,7 @@ class ReposCell: UITableViewCell {
     let idLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
     }()
@@ -39,7 +39,7 @@ class ReposCell: UITableViewCell {
     let nameLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
     }()
@@ -47,7 +47,7 @@ class ReposCell: UITableViewCell {
     let ownerLoginLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
     }()
@@ -69,17 +69,8 @@ class ReposCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        cellView.layer.cornerRadius = 10
-        cellView.clipsToBounds = true
-        
         overlayFirstLayer()
         overlayCardView()
-        
-        idLabel.text = "idLabel"
-        nameLabel.text = "nameLabel"
-        ownerLoginLabel.text = "ownerLoginLabel"
-        descriptionLabel.text = "description description description description description 6645523423 description description description 222222"
-        
     }
     
     private func overlayCardView() {
@@ -90,21 +81,22 @@ class ReposCell: UITableViewCell {
         
         nameLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         idLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10).isActive = true
         idLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -20).isActive = true
-        idLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        idLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         ownerLoginLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
         ownerLoginLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10).isActive = true
         ownerLoginLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         
-        descriptionLabel.anchor(top: nil, leading: cellView.leadingAnchor,
-                                bottom: cellView.bottomAnchor,
-                                trailing: cellView.trailingAnchor,
-                                size: CGSize(width: 70, height: 40))
+        descriptionLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: cellView.bottomAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -20).isActive = true
+        descriptionLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
     }
     
@@ -119,7 +111,7 @@ class ReposCell: UITableViewCell {
     }
     
     func set(viewModel: ReposCellViewModel) {
-        idLabel.text = String(viewModel.id)
+        idLabel.text = "id: " + String(viewModel.id)
         nameLabel.text = viewModel.name
         ownerLoginLabel.text = viewModel.ownerLogin
         descriptionLabel.text = viewModel.description

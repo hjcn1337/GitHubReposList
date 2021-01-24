@@ -29,8 +29,6 @@ struct NetworkDataFetcher: DataFetcher {
             }
             
             let decoded = self.decodeJSON(type: ReposResponse.self, from: data)
-            print(data)
-            print(decoded)
             response(decoded)
         }
     }

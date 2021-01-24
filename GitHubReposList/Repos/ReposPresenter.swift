@@ -28,8 +28,6 @@ class ReposPresenter: ReposPresentationLogic {
       switch request {
       case .presentRepos:
         service?.getRepos(completion: { [weak self] repos in
-
-            
             let cells = repos.map { (reposItem) in
                 return ReposViewModel.Cell.init(id: reposItem.id, name: reposItem.name, ownerLogin: reposItem.owner.login, description: reposItem.reposResponseDescription, htmlUrl: reposItem.htmlUrl)
             }
@@ -48,8 +46,6 @@ class ReposPresenter: ReposPresentationLogic {
             
             self?.view.displayData(viewModel: Repos.Model.ViewModel.ViewModelData.displayRepos(reposViewModel: reposViewModel))
         })
-        
-       // self.view.displayData(viewModel: Repos.Model.ViewModel.ViewModelData.displayFooterLoader)
       }
     }
     

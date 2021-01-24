@@ -56,9 +56,6 @@ class ReposViewController: UIViewController, ReposDisplayLogic {
             footerView.setTitle("hello there")
             table.reloadData()
             refreshControl.endRefreshing()
-        case .displayFooterLoader:
-            print("new batch")
-            //footerView.showLoader()
         }
     }
     
@@ -89,7 +86,7 @@ extension ReposViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return 150
+        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

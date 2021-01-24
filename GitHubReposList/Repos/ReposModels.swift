@@ -25,7 +25,6 @@ enum Repos {
     struct ViewModel {
       enum ViewModelData {
         case displayRepos(reposViewModel: ReposViewModel)
-        case displayFooterLoader
       }
     }
   }
