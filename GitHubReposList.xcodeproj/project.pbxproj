@@ -16,6 +16,13 @@
 		5207530225B75B73009077C4 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207530125B75B73009077C4 /* Constraints.swift */; };
 		5207530525B75D1D009077C4 /* ReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207530425B75D1D009077C4 /* ReposCell.swift */; };
 		5207530825B75E17009077C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207530725B75E17009077C4 /* Constants.swift */; };
+		521ABF6E25BD9AC0009D4034 /* ReposModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521ABF6D25BD9AC0009D4034 /* ReposModels.swift */; };
+		526609EC25B8AA3D0017355C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526609EB25B8AA3D0017355C /* NetworkService.swift */; };
+		526609EF25B8AAD20017355C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526609EE25B8AAD20017355C /* API.swift */; };
+		526609F225B8ABEE0017355C /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526609F125B8ABEE0017355C /* NetworkDataFetcher.swift */; };
+		526609FB25B8ACC90017355C /* ReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526609FA25B8ACC90017355C /* ReposResponse.swift */; };
+		526609FE25B8B2020017355C /* ReposService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526609FD25B8B2020017355C /* ReposService.swift */; };
+		52767AB125B9774900D1D9F4 /* ReposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52767AB025B9774900D1D9F4 /* ReposPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,13 @@
 		5207530125B75B73009077C4 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		5207530425B75D1D009077C4 /* ReposCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposCell.swift; sourceTree = "<group>"; };
 		5207530725B75E17009077C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		521ABF6D25BD9AC0009D4034 /* ReposModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposModels.swift; sourceTree = "<group>"; };
+		526609EB25B8AA3D0017355C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		526609EE25B8AAD20017355C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		526609F125B8ABEE0017355C /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		526609FA25B8ACC90017355C /* ReposResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposResponse.swift; sourceTree = "<group>"; };
+		526609FD25B8B2020017355C /* ReposService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposService.swift; sourceTree = "<group>"; };
+		52767AB025B9774900D1D9F4 /* ReposPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,8 @@
 		520752DE25B75449009077C4 /* GitHubReposList */ = {
 			isa = PBXGroup;
 			children = (
+				526609F425B8AC350017355C /* Models */,
+				526609EA25B8AA310017355C /* Services */,
 				5207530025B75B5F009077C4 /* Extensions */,
 				520752F925B7573E009077C4 /* Repos */,
 				520752DF25B75449009077C4 /* AppDelegate.swift */,
@@ -79,6 +95,9 @@
 				520752FF25B75A09009077C4 /* Cell */,
 				520752F625B75710009077C4 /* ReposScene.storyboard */,
 				520752FA25B7576F009077C4 /* ReposViewController.swift */,
+				526609FD25B8B2020017355C /* ReposService.swift */,
+				52767AB025B9774900D1D9F4 /* ReposPresenter.swift */,
+				521ABF6D25BD9AC0009D4034 /* ReposModels.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -98,6 +117,24 @@
 				5207530125B75B73009077C4 /* Constraints.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		526609EA25B8AA310017355C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				526609EB25B8AA3D0017355C /* NetworkService.swift */,
+				526609EE25B8AAD20017355C /* API.swift */,
+				526609F125B8ABEE0017355C /* NetworkDataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		526609F425B8AC350017355C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				526609FA25B8ACC90017355C /* ReposResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,10 +209,17 @@
 			files = (
 				5207530225B75B73009077C4 /* Constraints.swift in Sources */,
 				520752FB25B7576F009077C4 /* ReposViewController.swift in Sources */,
+				52767AB125B9774900D1D9F4 /* ReposPresenter.swift in Sources */,
+				526609FB25B8ACC90017355C /* ReposResponse.swift in Sources */,
 				520752E025B75449009077C4 /* AppDelegate.swift in Sources */,
 				520752E225B75449009077C4 /* SceneDelegate.swift in Sources */,
 				5207530525B75D1D009077C4 /* ReposCell.swift in Sources */,
 				5207530825B75E17009077C4 /* Constants.swift in Sources */,
+				521ABF6E25BD9AC0009D4034 /* ReposModels.swift in Sources */,
+				526609F225B8ABEE0017355C /* NetworkDataFetcher.swift in Sources */,
+				526609FE25B8B2020017355C /* ReposService.swift in Sources */,
+				526609EF25B8AAD20017355C /* API.swift in Sources */,
+				526609EC25B8AA3D0017355C /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

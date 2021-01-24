@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+protocol ReposCellViewModel {
+    var id: Int { get }
+    var name: String { get }
+    var ownerLogin: String { get }
+    var description: String? { get }
+}
+
+
 class ReposCell: UITableViewCell {
     
     static let reuseId = "ReposCell"
@@ -108,6 +116,13 @@ class ReposCell: UITableViewCell {
         }
     
         cellView.fillSuperview(padding: Constants.cellInsets)
+    }
+    
+    func set(viewModel: ReposCellViewModel) {
+        idLabel.text = String(viewModel.id)
+        nameLabel.text = viewModel.name
+        ownerLoginLabel.text = viewModel.ownerLogin
+        descriptionLabel.text = viewModel.description
     }
     
     required init?(coder aDecoder: NSCoder) {
