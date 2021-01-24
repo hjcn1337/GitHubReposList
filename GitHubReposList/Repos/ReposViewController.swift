@@ -53,7 +53,7 @@ class ReposViewController: UIViewController, ReposDisplayLogic {
         switch viewModel {
         case .displayRepos(let reposViewModel):
             self.reposViewModel = reposViewModel
-            footerView.setTitle("hello there")
+            footerView.setTitle("There are \(reposViewModel.cells.count) repos")
             table.reloadData()
             refreshControl.endRefreshing()
         }
@@ -85,7 +85,6 @@ extension ReposViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
         return 200
     }
     
