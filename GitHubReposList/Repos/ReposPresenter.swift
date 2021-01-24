@@ -31,17 +31,25 @@ class ReposPresenter: ReposPresentationLogic {
 
             
             let cells = repos.map { (reposItem) in
-                return ReposViewModel.Cell.init(id: reposItem.id, name: reposItem.name, ownerLogin: reposItem.owner.login, description: reposItem.reposResponseDescription)
+                return ReposViewModel.Cell.init(id: reposItem.id, name: reposItem.name, ownerLogin: reposItem.owner.login, description: reposItem.reposResponseDescription, htmlUrl: reposItem.htmlUrl)
             }
             
             let reposViewModel = ReposViewModel.init(cells: cells)
             
             self?.view.displayData(viewModel: Repos.Model.ViewModel.ViewModelData.displayRepos(reposViewModel: reposViewModel))
           })
-    
-    
       case .presentFooterLoader:
-        print("dssdds")
+        service?.getNextBatch(completion: { [weak self] repos in
+            let cells = repos.map { (reposItem) in
+                return ReposViewModel.Cell.init(id: reposItem.id, name: reposItem.name, ownerLogin: reposItem.owner.login, description: reposItem.reposResponseDescription, htmlUrl: reposItem.htmlUrl)
+            }
+            
+            let reposViewModel = ReposViewModel.init(cells: cells)
+            
+            self?.view.displayData(viewModel: Repos.Model.ViewModel.ViewModelData.displayRepos(reposViewModel: reposViewModel))
+        })
+        
+       // self.view.displayData(viewModel: Repos.Model.ViewModel.ViewModelData.displayFooterLoader)
       }
     }
     

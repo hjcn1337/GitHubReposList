@@ -12,10 +12,12 @@ struct ReposResponseElement: Codable {
     let name: String
     let owner: Owner
     let reposResponseDescription: String?
+    let htmlUrl: String
 
     enum CodingKeys: String, CodingKey {
         case id, name, owner
         case reposResponseDescription = "description"
+        case htmlUrl = "html_url"
     }
 }
 

@@ -37,6 +37,8 @@ struct ReposViewModel {
         let name: String
         let ownerLogin: String
         let description: String?
+        
+        let htmlUrl: String
     }
  
     let cells: [Cell]

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataFetcher {
-    func getRepos(nextBatchFrom: String?, response: @escaping (ReposResponse?) -> Void)
+    func getRepos(nextBatchFrom: String, response: @escaping (ReposResponse?) -> Void)
 }
 
 struct NetworkDataFetcher: DataFetcher {
@@ -19,8 +19,10 @@ struct NetworkDataFetcher: DataFetcher {
         self.networking = networking
     }
     
-    func getRepos(nextBatchFrom: String?, response: @escaping (ReposResponse?) -> Void) {
-        networking.request(path: API.repos) { (data, error) in
+    func getRepos(nextBatchFrom: String, response: @escaping (ReposResponse?) -> Void) {
+        
+        let params = ["type": "public", "page": nextBatchFrom]
+        networking.request(path: API.repos, params: params) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
                 response(nil)

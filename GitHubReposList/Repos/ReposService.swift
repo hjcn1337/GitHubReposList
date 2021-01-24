@@ -11,6 +11,8 @@ class ReposService {
     var networking: Networking
     var fetcher: DataFetcher
     
+    var pageNumber = 1
+    
     private var reposResponse: ReposResponse?
     
     init() {
@@ -20,8 +22,25 @@ class ReposService {
 
     
     func getRepos(completion: @escaping (ReposResponse) -> Void) {
-        fetcher.getRepos(nextBatchFrom: nil) { [ weak self] (repos) in
+        fetcher.getRepos(nextBatchFrom: String(pageNumber)) { [ weak self] (repos) in
             self?.reposResponse = repos
+            guard let reposResponse = self?.reposResponse else { return }
+            completion(reposResponse)
+        }
+    }
+    
+    func getNextBatch(completion: @escaping (ReposResponse) -> Void) {
+        pageNumber += 1
+        fetcher.getRepos(nextBatchFrom: String(pageNumber)) { [ weak self] (repos) in
+            guard let repos = repos else { return }
+            //guard self?.feedResponse?.nextFrom != feed.nextFrom else { return }
+            
+            if self?.reposResponse == nil {
+                self?.reposResponse = repos
+            } else {
+                self?.reposResponse?.append(contentsOf: repos)
+            }
+            
             guard let reposResponse = self?.reposResponse else { return }
             completion(reposResponse)
         }
