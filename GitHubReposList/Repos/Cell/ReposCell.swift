@@ -95,7 +95,6 @@ class ReposCell: UITableViewCell {
         descriptionLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: cellView.bottomAnchor).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -20).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
         descriptionLabel.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
     }
