@@ -11,8 +11,9 @@ class ReposService {
     var networking: Networking
     var fetcher: DataFetcher
     
-    var pageNumber = 1
-    let firstPageNumber = 1
+    private var pageNumber = 1
+    private let firstPageNumber = 1
+    private var isLoading = false
     
     private var reposResponse: ReposResponse?
     
@@ -31,7 +32,11 @@ class ReposService {
     }
     
     func getNextBatch(completion: @escaping (ReposResponse) -> Void) {
+        guard !isLoading else { return }
+        
+        isLoading = true
         pageNumber += 1
+        
         fetcher.getRepos(nextBatchFrom: String(pageNumber)) { [ weak self] (repos) in
             guard let repos = repos else { return }
             
@@ -43,6 +48,7 @@ class ReposService {
             
             guard let reposResponse = self?.reposResponse else { return }
             completion(reposResponse)
+            self?.isLoading = false
         }
     }
 }
